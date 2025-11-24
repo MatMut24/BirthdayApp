@@ -15,18 +15,48 @@ code {
 .app {
   text-align: center;
   font-family: 'Arial', sans-serif;
-  padding: 2rem;
+  background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  transition: transform 0.6s ease;
+}
+
+.slide-wrapper {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slide-text {
   font-size: 2rem;
   margin: 2rem 0;
+  color: #d63384;
+  padding: 2rem;
 }
 
 .slide-image img,
 .slide-gif img {
   max-width: 80%;
-  border-radius: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.slide-image p,
+.slide-gif p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #6f42c1;
+  padding: 2rem;
 }
 
 .navigation {
@@ -34,8 +64,36 @@ code {
 }
 
 button {
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.5rem;
   margin: 0 1rem;
   font-size: 1rem;
   cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #d63384;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #a61d72;
+}
+
+button:disabled {
+  background-color: #e0aeea;
+  cursor: not-allowed;
+.slide-transition {
+  animation: slideIn 0.6s ease;
+}
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
